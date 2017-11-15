@@ -40,6 +40,7 @@ public class CombineAllInHereStaff {
             System.out.println("2. Add Delivery Man");
             System.out.println("3. Display And Edit Delivery Man Status");
             System.out.println("4. Schedule Order");
+            System.out.println("5. Add Menu");
             System.out.println("0. Exit");
             System.out.println("=============================");
 
@@ -104,6 +105,10 @@ public class CombineAllInHereStaff {
             else if(selection == 4){
                 ModuleE modd = new ModuleE();
                 modd.ScheduledOrdering();
+            }
+            else if(selection == 5){
+                Menu m = new Menu();
+                m.CallMenu();
             }
             else if(selection == 0){
                 System.out.println("Thank you for using the system.");

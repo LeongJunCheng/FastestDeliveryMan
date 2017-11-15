@@ -11,7 +11,7 @@ package AllPartCombine;
  */
 public class CombineAllInHereCust {
     public static void main(String args []){
-        Menu m = new Menu();
-        m.CallMenu();
+        CustomerOrder order = new CustomerOrder();
+        order.CustomerOrdering();
     }
 }
