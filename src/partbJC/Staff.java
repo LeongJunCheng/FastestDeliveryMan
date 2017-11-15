@@ -29,8 +29,7 @@ public class Staff {
             System.out.println("=============================");
             System.out.println("1. Display All Delivery Man Details");
             System.out.println("2. Add Delivery Man");
-            System.out.println("3. Edit Delivery Man Status");
-            System.out.println("4. Exit");
+            System.out.println("0. Exit");
             System.out.println("=============================");
 
             Scanner s = new Scanner(System.in);
@@ -59,42 +58,15 @@ public class Staff {
                 
                 staffList.add(d);
             }
-            else if(selection == 3){
-                int validate = 0;
-                do{
-                    System.out.printf("Enter the delivery man Name(type 0 to exit): ");
-                    String name = s.next();
-                    
-                    if(name.equals("0")){
-                        validate = 1;
-                    }else{
-                        for(int a = 0; a < staffList.size(); a++){
-                            if(name.equals(staffList.get(a).getName())){
-                                System.out.printf("Delivery man Name: %30s\n", staffList.get(a).getName());
-                                System.out.printf("Enter the new Status: ");
-                                String status = s.next();
-                                staffList.get(a).setStatus(status);
-                                validate = 1;
-                                System.out.println("The Delivery Man Status has been changed.");
-                            }
-                        }
-                        if(validate == 0){
-                            System.out.println("The Delivery Man is not exist. Please try again.");
-                        }
-                    }
-
-                    
-                    
-                }while(validate != 1);
-            }
-            else if(selection == 4){
+            
+            else if(selection == 0){
                 System.out.println("Thank you for using the system.");
             }
             else{
                 System.out.println("Selection error!");
             }
 
-        }while(selection != 4);
+        }while(selection != 0);
         
     }
     
