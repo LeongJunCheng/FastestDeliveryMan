@@ -17,10 +17,10 @@ public class CheckPendingDelivery {
         DeliveryDomain dd = new DeliveryDomain();
         ArrayList<DeliveryDomain> deliveryList = new ArrayList<DeliveryDomain>();
         
-        deliveryList.add(new DeliveryDomain("D001", "15112017", "OR001", "Pending"));
-        deliveryList.add(new DeliveryDomain("D002", "15112017", "OR002", "Pending"));
-        deliveryList.add(new DeliveryDomain("D003", "15112017", "OR003", "Pending"));
-        deliveryList.add(new DeliveryDomain("D004", "15112017", "OR004", "Delivering"));
+        deliveryList.add(new DeliveryDomain("D001", null, "15112017", "OR001", "Pending"));
+        deliveryList.add(new DeliveryDomain("D002", null, "15112017", "OR002", "Pending"));
+        deliveryList.add(new DeliveryDomain("D003", null, "15112017", "OR003", "Pending"));
+        deliveryList.add(new DeliveryDomain("D004", "S004", "15112017", "OR004", "Delivering"));
         
         System.out.println("Pending Deliveries List");
         System.out.println("=======================================");

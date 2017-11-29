@@ -11,17 +11,23 @@ package AllPartCombine;
  */
 public class DeliveryDomain {
     protected String deliveryID;
+    protected String staffID;
     protected String date;
     protected String orderID;
     protected String status;
     
     public DeliveryDomain(){}
     
-    public DeliveryDomain(String deliveryID, String date, String orderID, String status){
+    public DeliveryDomain(String deliveryID, String staffID, String date, String orderID, String status){
         this.deliveryID = deliveryID;
+        this.staffID = staffID;
         this.date = date;
         this.orderID = orderID;
         this.status = status;
+    }
+    
+    public void setStaffID(String staffID){
+        this.staffID = staffID;
     }
     
     public void setStatus(String status){
@@ -33,6 +39,6 @@ public class DeliveryDomain {
     }
     
     public String toString(){
-        return String.format("%-15s %-15s %-15s %-15s", deliveryID, date, orderID, status);
+        return String.format("%-15s %-15s %-15s %-15s %-15s", deliveryID, staffID, date, orderID, status);
     }
 }
