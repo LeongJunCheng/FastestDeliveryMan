@@ -38,6 +38,10 @@ public class DeliveryDomain {
         return status;
     }
     
+    public String getDeliveryID(){
+        return deliveryID;
+    }
+    
     public String toString(){
         return String.format("%-15s %-15s %-15s %-15s %-15s", deliveryID, staffID, date, orderID, status);
     }
