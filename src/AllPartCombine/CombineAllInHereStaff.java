@@ -30,6 +30,7 @@ public class CombineAllInHereStaff {
         int selection = 0;
         
         ArrayList<DeliveryDomain> deliveryList = new ArrayList<DeliveryDomain>();
+        ArrayList<ScheduledOrder> orderList = new ArrayList<>();
         
         deliveryList.add(new DeliveryDomain("D001", null, "15112017", "OR001", "Pending"));
         deliveryList.add(new DeliveryDomain("D002", null, "15112017", "OR002", "Pending"));
@@ -51,6 +52,7 @@ public class CombineAllInHereStaff {
             System.out.println("5. Add Menu");
             System.out.println("6. Check for order delivery status");
             System.out.println("7. Assign Delivery man to Delivery");
+            System.out.println("8. View Scheduled Orders");
             System.out.println("0. Exit");
             System.out.println("=============================");
 
@@ -114,7 +116,7 @@ public class CombineAllInHereStaff {
             }
             else if(selection == 4){
                 ModuleE modd = new ModuleE();
-                modd.ScheduledOrdering();
+                orderList = modd.ScheduledOrdering(orderList);
             }
             else if(selection == 5){
                 Menu m = new Menu();
@@ -126,6 +128,10 @@ public class CombineAllInHereStaff {
             else if(selection == 7){
                 AssignDeliveryJob adj = new AssignDeliveryJob();
                 deliveryList = adj.AssignJob(deliveryList);
+            }
+            else if(selection == 8){
+                ModuleE modd = new ModuleE();
+                modd.viewScheduleRecord(orderList);
             }
             else if(selection == 0){
                 System.out.println("Thank you for using the system.");
