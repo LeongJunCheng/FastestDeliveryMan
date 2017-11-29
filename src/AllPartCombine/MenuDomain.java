@@ -43,6 +43,18 @@ public class MenuDomain {
         return price;
     }
     
+    public void SetFname (String fname){
+       this.fname = fname;
+    }
+    
+    public void SetFdescription (String description){
+       this.description = description;
+    }
+        
+    public void SetPrice (double price){
+       this.price = price;
+    }
+    
 
     
 }

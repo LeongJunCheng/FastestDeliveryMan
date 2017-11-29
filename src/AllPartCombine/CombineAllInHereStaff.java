@@ -22,15 +22,24 @@ import java.util.Scanner;
  * @author leong
  */
 public class CombineAllInHereStaff {
-
+    static int count2 = 0;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         int selection = 0;
         
+        ArrayList<DeliveryDomain> deliveryList = new ArrayList<DeliveryDomain>();
+        ArrayList<ScheduledOrder> orderList = new ArrayList<>();
+        
+        deliveryList.add(new DeliveryDomain("D001", null, "15112017", "OR001", "Pending"));
+        deliveryList.add(new DeliveryDomain("D002", null, "15112017", "OR002", "Pending"));
+        deliveryList.add(new DeliveryDomain("D003", null, "15112017", "OR003", "Pending"));
+        deliveryList.add(new DeliveryDomain("D004", "S004", "15112017", "OR004", "Delivering"));
+        
         StaffDomain d = new StaffDomain();
         ArrayList<StaffDomain> staffList = new ArrayList<StaffDomain>();
+        CheckPendingDelivery ck = new CheckPendingDelivery();
         int count = 0;
         
         do{
@@ -40,8 +49,10 @@ public class CombineAllInHereStaff {
             System.out.println("2. Add Delivery Man");
             System.out.println("3. Display And Edit Delivery Man Status");
             System.out.println("4. Schedule Order");
-            System.out.println("5. Add Menu");
+            System.out.println("5. Menu");
             System.out.println("6. Check for order delivery status");
+            System.out.println("7. Assign Delivery man to Delivery");
+            System.out.println("8. View Scheduled Orders");
             System.out.println("0. Exit");
             System.out.println("=============================");
 
@@ -105,15 +116,22 @@ public class CombineAllInHereStaff {
             }
             else if(selection == 4){
                 ModuleE modd = new ModuleE();
-                modd.ScheduledOrdering();
+                orderList = modd.ScheduledOrdering(orderList);
             }
             else if(selection == 5){
                 Menu m = new Menu();
                 m.CallMenu();
             }
             else if(selection == 6){
-                CheckPendingDelivery ck = new CheckPendingDelivery();
-                ck.checkDelivery();
+                ck.checkDelivery(deliveryList);
+            }
+            else if(selection == 7){
+                AssignDeliveryJob adj = new AssignDeliveryJob();
+                deliveryList = adj.AssignJob(deliveryList);
+            }
+            else if(selection == 8){
+                ModuleE modd = new ModuleE();
+                modd.viewScheduleRecord(orderList);
             }
             else if(selection == 0){
                 System.out.println("Thank you for using the system.");

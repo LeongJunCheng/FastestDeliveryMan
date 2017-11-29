@@ -19,10 +19,6 @@ import java.util.Scanner;
  * @author LER
  */
 public class ModuleE {
-
-    private List<ScheduledOrder> orderList = new ArrayList<>();
-    
-
     public String inputOrderNo(){
         String orderNo ="";
         do{        
@@ -103,9 +99,19 @@ public class ModuleE {
         return time;
     }
 
+    public void viewScheduleRecord(ArrayList<ScheduledOrder> order){
+        ArrayList<ScheduledOrder> orderList = new ArrayList<>(order);
+        
+        System.out.println(String.format("%-15s %-20s %-20s %-12s %-28s %-12s %-12s %-10s\n","Order No","Name","Address","Phone No","Order Date","Delivery Date","DeliveryTime","Status"));
+        for(int i = 0; i<orderList.size();i++){
+            System.out.println(orderList.get(i).toString());
+        }
+    }
     
-    
-    public void ScheduledOrdering() {
+    public ArrayList<ScheduledOrder> ScheduledOrdering(ArrayList<ScheduledOrder> order) {
+        
+        ArrayList<ScheduledOrder> orderList = new ArrayList<>(order);
+        
         Calendar cal = Calendar.getInstance();
         ModuleE modulee = new ModuleE();
         String option = "";
@@ -120,16 +126,12 @@ public class ModuleE {
         String deliveryDate = modulee.inputDeliveryDate().toString();
         String deliveryTime = modulee.inputDeliveryTime().toString();
         ScheduledOrder so = new ScheduledOrder(orderNo, custName, custAddress, custPhone, cal.getTime().toString(),deliveryDate, deliveryTime,"Pending");
-        modulee.orderList.add(so);
+        orderList.add(so);
         System.out.print("\nDo you wish to continue ? (Y/N): " );
         option = scanner.nextLine();       
         }while(option.equals("Y")||option.equals("y"));
         
-        System.out.println(String.format("%-15s %-20s %-20s %-12s %-28s %-12s %-12s %-10s\n","Order No","Name","Address","Phone No","Order Date","Delivery Date","DeliveryTime","Status"));
-        for(int i = 0; i<modulee.orderList.size();i++){
-            System.out.println(modulee.orderList.get(i).toString());
-        }
-                  
+        return orderList;
     }
     
 }

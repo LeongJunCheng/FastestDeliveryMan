@@ -13,23 +13,20 @@ import java.util.ArrayList;
  */
 public class CheckPendingDelivery {
     
-    public void checkDelivery(){
+    public ArrayList<DeliveryDomain> checkDelivery(ArrayList<DeliveryDomain> delivery){
         DeliveryDomain dd = new DeliveryDomain();
-        ArrayList<DeliveryDomain> deliveryList = new ArrayList<DeliveryDomain>();
-        
-        deliveryList.add(new DeliveryDomain("D001", "15112017", "OR001", "Pending"));
-        deliveryList.add(new DeliveryDomain("D002", "15112017", "OR002", "Pending"));
-        deliveryList.add(new DeliveryDomain("D003", "15112017", "OR003", "Pending"));
-        deliveryList.add(new DeliveryDomain("D004", "15112017", "OR004", "Delivering"));
+        ArrayList<DeliveryDomain> deliveryList = new ArrayList<DeliveryDomain>(delivery);
         
         System.out.println("Pending Deliveries List");
         System.out.println("=======================================");
-        System.out.printf("%-15s %-15s %-15s %-15s\n", "ID", "Date", "Order ID", "Status");
+        System.out.printf("%-15s %-15s %-15s %-15s %-15s\n", "ID", "StaffID", "Date", "Order ID", "Status");
         for(int a = 0; a < deliveryList.size(); a++){
             if(deliveryList.get(a).getStatus().equals("Pending")){
                 System.out.println(deliveryList.get(a));
             }
         }
         System.out.println("=======================================");
+        
+        return deliveryList;
     }
 }
