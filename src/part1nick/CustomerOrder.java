@@ -35,8 +35,9 @@ public class CustomerOrder {
             System.out.println("========================================================");
             System.out.println("1. Make Order");
             System.out.println("2. View Order Details");
-            System.out.println("3. Make payment");
-            System.out.println("4. Exit");
+            System.out.println("3. Edit Order ");
+            System.out.println("4. Make payment");
+            System.out.println("5. Exit");
             System.out.println("========================================================");
 
             Scanner s = new Scanner(System.in);
@@ -44,6 +45,8 @@ public class CustomerOrder {
             selection = s.nextInt();
 
             if (selection == 1) {
+                boolean exit = false;
+                do{
                 System.out.println("========================================================");
                 System.out.println("No\tFood Name \t\t\t Price");
                 System.out.println("========================================================");
@@ -55,13 +58,18 @@ public class CustomerOrder {
 
                     System.out.printf("%d.\t%-10s\t\t\t RM %.2f \n", u + 1, FD[0], price);
                 }
-                System.out.printf("Select number: ");
+                System.out.printf("Select number(0 to exit): ");
                 foodSelect = s.nextInt();
+                if(foodSelect == 0)
+                {
+                    exit= true;
+                }else
                 //fooodOrder.add(foodName[foodSelect - 1]);
 
                 //COD.CustomerOrderDomain(foodName[foodSelect - 1]);
                 //foodOrder.add(COD);
                 list.add(foodName[foodSelect - 1]);
+                }while (exit == false);
 
             } else if (selection == 2) {
                 System.out.flush();
@@ -90,7 +98,7 @@ public class CustomerOrder {
 
             } else if (selection == 3) {
                 System.out.println("3. Make payment");
-            } else if (selection == 4) {
+            } else if (selection == 5) {
                 System.out.println("Thank you for using the system.");
             } else {
                 System.out.println("Error selection.");
