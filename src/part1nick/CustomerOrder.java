@@ -78,6 +78,7 @@ public class CustomerOrder {
                     System.out.printf("%-10s\t\t\tRM %04.2f \n", name, price);
                     //System.out.println(list.get(i));e();
                     totalPrice += price;
+                    int d = 0;
                     //totalPrice += foodOrder.get(i).getPric
 
                 }
