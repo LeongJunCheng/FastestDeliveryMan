@@ -73,7 +73,6 @@ public class CustomerOrder {
                     String[] tmp2 = tmp.split(" - ");
                     String name = tmp2[0];
                     double price = Double.parseDouble(tmp2[1]);
-                    int d = 0;
 
                     //System.out.printf("%s\t\tRM %.2f \n", foodOrder.get(i).getFoodName(), foodOrder.get(i).getPrice());
                     System.out.printf("%-10s\t\t\tRM %04.2f \n", name, price);
