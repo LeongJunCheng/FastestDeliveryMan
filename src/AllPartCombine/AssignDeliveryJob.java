@@ -47,6 +47,7 @@ public class AssignDeliveryJob {
                     if(deliveryList.get(a).getDeliveryID().equals(deliveryID)){
                         deliveryList.get(a).setStaffID(staffID);
                         deliveryList.get(a).setStatus("Delivering");
+                        System.out.println("");
                     }
                 }
             }

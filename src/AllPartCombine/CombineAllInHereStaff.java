@@ -49,7 +49,7 @@ public class CombineAllInHereStaff {
             System.out.println("2. Add Delivery Man");
             System.out.println("3. Display And Edit Delivery Man Status");
             System.out.println("4. Schedule Order");
-            System.out.println("5. Add Menu");
+            System.out.println("5. Menu");
             System.out.println("6. Check for order delivery status");
             System.out.println("7. Assign Delivery man to Delivery");
             System.out.println("8. View Scheduled Orders");

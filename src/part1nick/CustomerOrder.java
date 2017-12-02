@@ -21,57 +21,84 @@ public class CustomerOrder {
 
         int selection;
         int validate = 1;
-        int foodSelect;
-        double totalPrice=0;
-        ArrayList<CustomerOrderDomain> foodOrder  = new ArrayList<CustomerOrderDomain>();
-      
+        int foodSelect = 0;
+        double totalPrice = 0;
+
+        String[] fooodOrder = null;
+        ArrayList<CustomerOrderDomain> foodOrder = new ArrayList<CustomerOrderDomain>();
+        ArrayList list = new ArrayList();
+//        ArrayList<CustomerOrderDomain> foodDetails = new ArrayList<CustomerOrderDomain>();
+        CustomerOrderDomain COD = new CustomerOrderDomain();
 
         do {
             System.out.println("Customer Page");
             System.out.println("========================================================");
             System.out.println("1. Make Order");
             System.out.println("2. View Order Details");
-            System.out.println("3. Make payment");
-            System.out.println("4. Exit");
+            System.out.println("3. Edit Order ");
+            System.out.println("4. Make payment");
+            System.out.println("5. Exit");
             System.out.println("========================================================");
 
             Scanner s = new Scanner(System.in);
             System.out.printf("Your Selection: ");
             selection = s.nextInt();
-            CustomerOrderDomain COD = new CustomerOrderDomain();
 
             if (selection == 1) {
-                   
-                    System.out.flush();
-                    for (int i = 0; i < foodName.length; i++) {
-                        System.out.printf("%d ." + foodName[i] + " \n", i );
-                    }
-                    System.out.printf("Select number: ");
-                    foodSelect = s.nextInt();
-                   
-                    COD.CustomerOrderDomain(foodName[foodSelect]);
-                    foodOrder.add(COD);
-                 
-                            
-                        
-         
-                
-                
+                boolean exit = false;
+                do{
+                System.out.println("========================================================");
+                System.out.println("No\tFood Name \t\t\t Price");
+                System.out.println("========================================================");
+                for (int u = 0; u < foodName.length; u++) {
+                    String[] FD = foodName[u].split(" - ");
+                    double price = Double.parseDouble(FD[1]);
+//                        COD.CustomerOrderDomain(foodName[u]);
+//                        foodDetails.add(COD);
+
+                    System.out.printf("%d.\t%-10s\t\t\t RM %.2f \n", u + 1, FD[0], price);
+                }
+                System.out.printf("Select number(0 to exit): ");
+                foodSelect = s.nextInt();
+                if(foodSelect == 0)
+                {
+                    exit= true;
+                }else
+                //fooodOrder.add(foodName[foodSelect - 1]);
+
+                //COD.CustomerOrderDomain(foodName[foodSelect - 1]);
+                //foodOrder.add(COD);
+                list.add(foodName[foodSelect - 1]);
+                }while (exit == false);
+
             } else if (selection == 2) {
                 System.out.flush();
-                for(int i = 0; i<foodOrder.size();i++){
-                    System.out.printf("%s RM %.2f \n" , foodOrder.get(i).getFoodName(), foodOrder.get(i).getPrice());
-                    totalPrice+=foodOrder.get(i).getPrice();
-                
+                System.out.println("========================================================");
+                System.out.println("Food Name \t\t\t Price");
+                System.out.println("========================================================");
+                for (int i = 0; i < list.size(); i++) {
+                    String tmp = (String) list.get(i);
+                    String[] tmp2 = tmp.split(" - ");
+                    String name = tmp2[0];
+                    double price = Double.parseDouble(tmp2[1]);
+
+                    //System.out.printf("%s\t\tRM %.2f \n", foodOrder.get(i).getFoodName(), foodOrder.get(i).getPrice());
+                    System.out.printf("%-10s\t\t\tRM %04.2f \n", name, price);
+                    //System.out.println(list.get(i));e();
+                    totalPrice += price;
+                    int d = 0;
+                    //totalPrice += foodOrder.get(i).getPric
+
                 }
-                System.out.printf("Total Price : RM %.2f \n",totalPrice);
+                System.out.println("========================================================");
+                System.out.printf("Total Price : RM %.2f \n", totalPrice);
                 s = new Scanner(System.in);
                 System.out.printf("Press enter to go back ");
                 String pressEnter = s.nextLine();
 
             } else if (selection == 3) {
                 System.out.println("3. Make payment");
-            } else if (selection == 4) {
+            } else if (selection == 5) {
                 System.out.println("Thank you for using the system.");
             } else {
                 System.out.println("Error selection.");
