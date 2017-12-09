@@ -10,11 +10,11 @@ package AllPartCombine;
  * @author leong
  */
 public class DeliveryDomain {
-    protected String deliveryID;
-    protected String staffID;
-    protected String date;
-    protected String orderID;
-    protected String status;
+    public String deliveryID;
+    public String staffID;
+    public String date;
+    public String orderID;
+    public String status;
     
     public DeliveryDomain(){}
     
@@ -46,13 +46,29 @@ public class DeliveryDomain {
         return date;
     }
     
-    public String getMonth(){
+    public int getYear(){
         //ddmmyyyy
-        String year = date.substring(4, 4);
-        String month = date.substring(2, 2);
-        String day = date.substring(0, 2);
+        String year = date.substring(4, 8);
 
-        return month;
+        int yearInt = Integer.parseInt(year);
+
+        return yearInt;
+    }
+    
+    public int getMonth(){
+        //ddmmyyyy
+        String month = date.substring(2, 4);
+        int monthInt = Integer.parseInt(month);
+
+        return monthInt;
+    }
+    
+    public int getDay(){
+        //ddmmyyyy
+        String day = date.substring(0, 2);
+        int dayInt = Integer.parseInt(day);
+
+        return dayInt;
     }
     
     public String toString(){

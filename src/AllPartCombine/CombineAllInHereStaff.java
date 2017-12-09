@@ -34,7 +34,7 @@ public class CombineAllInHereStaff {
         
         deliveryList.add(new DeliveryDomain("D001", null, "15112017", "OR001", "Pending"));
         deliveryList.add(new DeliveryDomain("D002", null, "15112017", "OR002", "Pending"));
-        deliveryList.add(new DeliveryDomain("D003", null, "15112017", "OR003", "Pending"));
+        deliveryList.add(new DeliveryDomain("D003", null, "15112017", "OR003", "Delivered"));
         deliveryList.add(new DeliveryDomain("D004", "S004", "15112017", "OR004", "Delivering"));
         
         StaffDomain d = new StaffDomain();
