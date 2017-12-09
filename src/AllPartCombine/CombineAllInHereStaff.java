@@ -53,6 +53,7 @@ public class CombineAllInHereStaff {
             System.out.println("6. Check for order delivery status");
             System.out.println("7. Assign Delivery man to Delivery");
             System.out.println("8. View Scheduled Orders");
+            System.out.println("9. CEO Check for delivery report");
             System.out.println("0. Exit");
             System.out.println("=============================");
 
@@ -132,6 +133,10 @@ public class CombineAllInHereStaff {
             else if(selection == 8){
                 ModuleE modd = new ModuleE();
                 modd.viewScheduleRecord(orderList);
+            }
+            else if(selection == 9){
+                CheckSuccessDelivery csd = new CheckSuccessDelivery();
+                csd.checkDelivery(deliveryList);
             }
             else if(selection == 0){
                 System.out.println("Thank you for using the system.");
