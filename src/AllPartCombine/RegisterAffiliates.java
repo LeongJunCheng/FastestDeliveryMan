@@ -88,7 +88,7 @@ public class RegisterAffiliates {
             }
 
             if(selec == 2){
-                System.out.printf("\n");
+                System.out.println();
                  if (aList.isEmpty()) {
                     System.out.println( "There is no any Affiliates details in the list!!");
                 } else {
