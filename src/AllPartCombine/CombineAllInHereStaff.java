@@ -54,6 +54,7 @@ public class CombineAllInHereStaff {
             System.out.println("7. Assign Delivery man to Delivery");
             System.out.println("8. View Scheduled Orders");
             System.out.println("9. CEO Check for delivery report");
+            System.out.println("10. Register As Affiliates");
             System.out.println("0. Exit");
             System.out.println("=============================");
 
@@ -137,6 +138,11 @@ public class CombineAllInHereStaff {
             else if(selection == 9){
                 CheckSuccessDelivery csd = new CheckSuccessDelivery();
                 csd.checkDelivery(deliveryList);
+            }
+            else if(selection == 10){
+                RegisterAffiliates ra = new RegisterAffiliates();
+                ra.Register();
+                
             }
             else if(selection == 0){
                 System.out.println("Thank you for using the system.");
