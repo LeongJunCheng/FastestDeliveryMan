@@ -166,8 +166,9 @@ public class CustomerOrder {
 
                 } else if (scPaymentType == 2) {
                     char yesno;
-                    System.out.print("Confirm Using cash payment?(extra 5% total fees will be charge)");
-                    System.out.printf("Your total price is RM %.2f after 5% charge RM%.2f\n", totalPrice, (totalPrice*1.5));
+                    System.out.println("Confirm Using cash payment?(extra 5% total fees will be charge)");
+                    double extraCharge = totalPrice *1.05;
+                    System.out.printf("Your total price is RM %.2f confirm? (Y/N) ",extraCharge);
                     
                     yesno = s.next().charAt(0);
                     if (yesno == 'Y' || yesno == 'y') {
