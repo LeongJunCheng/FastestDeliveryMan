@@ -55,6 +55,7 @@ public class CombineAllInHereStaff {
             System.out.println("8. View Scheduled Orders");
             System.out.println("9. CEO Check for delivery report");
             System.out.println("10. Register As Affiliates");
+            System.out.println("11. Staff Attendance");
             System.out.println("0. Exit");
             System.out.println("=============================");
 
@@ -143,6 +144,10 @@ public class CombineAllInHereStaff {
                 RegisterAffiliates ra = new RegisterAffiliates();
                 ra.Register();
                 
+            }
+            else if(selection == 11){
+                ClockInClockOut cock = new ClockInClockOut();
+                cock.Attendance();
             }
             else if(selection == 0){
                 System.out.println("Thank you for using the system.");
