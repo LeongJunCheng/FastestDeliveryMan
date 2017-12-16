@@ -46,6 +46,14 @@ public class DeliveryDomain {
         return date;
     }
     
+    public void clear(){
+        this.deliveryID = "";
+        this.staffID = "";
+        this.date = "";
+        this.orderID = "";
+        this.status = "";
+    }
+    
     public int getYear(){
         //ddmmyyyy
         String year = date.substring(4, 8);
@@ -69,6 +77,10 @@ public class DeliveryDomain {
         int dayInt = Integer.parseInt(day);
 
         return dayInt;
+    }
+    
+    public String toString2(){
+        return String.format("%-15s %-15s %-15s %-15s", deliveryID, staffID, date, orderID);
     }
     
     public String toString(){

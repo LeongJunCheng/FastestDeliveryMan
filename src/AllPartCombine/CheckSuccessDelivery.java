@@ -29,6 +29,8 @@ public class CheckSuccessDelivery {
         ArrayList<DeliveryDomain> deliveryList = new ArrayList<DeliveryDomain>(delivery);
         int selection = 0;
         do{
+            int count = 0;
+            dd.clear();
             System.out.println("Delivery Report Selection");
             System.out.println("=========================================");
             System.out.println("1. Annual Report");
@@ -41,46 +43,85 @@ public class CheckSuccessDelivery {
             if(selection == 1){
                 System.out.println("Current Year Delivery Report");
                 System.out.println("=============================================================================");
-                System.out.printf("%-15s %-15s %-15s %-15s %-15s\n", "ID", "StaffID", "Date", "Order ID", "Status");
+                System.out.printf("%-15s %-15s %-15s %-15s\n", "ID", "StaffID", "Date", "Order ID");
                 System.out.println("=============================================================================");
+                int validate = 0;
                 for(int a = 0; a < deliveryList.size(); a++){
                     if(deliveryList.get(a).getStatus().equals("Delivered")){
-                        if(deliveryList.get(a).getYear() == year)
-                            System.out.println(deliveryList.get(a));
+                        if(deliveryList.get(a).getYear() == year){
+                            System.out.println(deliveryList.get(a).toString2());
+                            validate = 0;
+                            count++;
                         }else{
-                            System.out.println("No Successful Delivery for the current Year");
+                            validate = 1;
                         }
                     }
+                }
+                if(validate == 1){
+                    System.out.println("No Successful Delivery for the current Year");
+                }else{
+                    System.out.printf("Total Deliveries this year = %d\n", count);
+                }
+                
             }else if(selection == 2){
                 System.out.println("Current Month Delivery Report");
                 System.out.println("=============================================================================");
-                System.out.printf("%-15s %-15s %-15s %-15s %-15s\n", "ID", "StaffID", "Date", "Order ID", "Status");
+                System.out.printf("%-15s %-15s %-15s %-15s\n", "ID", "StaffID", "Date", "Order ID");
                 System.out.println("=============================================================================");
+                int validate = 0;
                 for(int a = 0; a < deliveryList.size(); a++){
                     if(deliveryList.get(a).getStatus().equals("Delivered")){
-                        if(deliveryList.get(a).getMonth() == month)
-                            System.out.println(deliveryList.get(a));
+                        if(deliveryList.get(a).getMonth() == month){
+                            dd = new DeliveryDomain("a", "a", "a", "a", "a");
+                            System.out.println(deliveryList.get(a).toString2());
+                            validate = 0;
+                            count++;
                         }else{
-                            System.out.println("No Successful Delivery for the current Month");
+                            if(dd.getDate() == "a"){
+                                
+                            }else{
+                                validate = 1;
+                            }
                         }
                     }
+                }
+                if(validate == 1){
+                    System.out.println("No Successful Delivery for the current Month");
+                }else{
+                    System.out.printf("Total Deliveries this month = %d\n", count);
+                }
                 
             }else if(selection == 3){
-                System.out.println("Current Month Delivery Report");
+                System.out.println("Current Day Delivery Report");
                 System.out.println("=============================================================================");
-                System.out.printf("%-15s %-15s %-15s %-15s %-15s\n", "ID", "StaffID", "Date", "Order ID", "Status");
+                System.out.printf("%-15s %-15s %-15s %-15s\n", "ID", "StaffID", "Date", "Order ID");
                 System.out.println("=============================================================================");
+                int validate = 0;
                 for(int a = 0; a < deliveryList.size(); a++){
                     if(deliveryList.get(a).getStatus().equals("Delivered")){
-                        if(deliveryList.get(a).getDay() == day)
-                            System.out.println(deliveryList.get(a));
+                        if(deliveryList.get(a).getDay() == day){
+                            dd = new DeliveryDomain("a", "a", "a", "a", "a");
+                            System.out.println(deliveryList.get(a).toString2());
+                            validate = 0;
+                            count++;
                         }else{
-                            System.out.println("No Successful Delivery for the current Day");
+                            if(dd.getDate() == "a"){
+                                
+                            }else{
+                                validate = 1;
+                            }
                         }
                     }
+                }
+                
+                if(validate == 1){
+                    System.out.println("No Successful Delivery for the current Day");
+                }else{
+                    System.out.printf("Total Deliveries for today = %d\n", count);
+                }
                 
             }else if(selection == 0){
-
+                
             }else{
                 System.out.println("Wrong selection.");
             }
